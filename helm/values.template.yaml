@@ -1,0 +1,16 @@
+scheduler:
+  # Mount additional volumes into scheduler.
+  extraVolumes:
+    - name: airflow-dag-volume
+      hostPath: 
+        path: "{{CURRENT_DIRECTORY}}/src/dags"
+        type: Directory
+  extraVolumeMounts:
+    - name: airflow-dag-volume
+      mountPath: /opt/airflow/dags
+
+logs:
+  persistence:
+    # Enable persistent volume for storing logs
+    enabled: true
+
