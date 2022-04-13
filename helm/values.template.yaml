@@ -1,3 +1,9 @@
+executor: LocalExecutor
+
+workers:
+  persistence:
+    size: 32Gi
+
 scheduler:
   # Mount additional volumes into scheduler.
   extraVolumes:
@@ -8,9 +14,3 @@ scheduler:
   extraVolumeMounts:
     - name: airflow-dag-volume
       mountPath: /opt/airflow/dags
-
-logs:
-  persistence:
-    # Enable persistent volume for storing logs
-    enabled: true
-
