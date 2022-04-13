@@ -1,8 +1,0 @@
-bases:
-  - "../../base"
-
-resources:
-  - "airflow-webserver-node-port-service.yaml"
-
-patches:
-  - "airflow-scheduler-deployment.yaml"
