@@ -4,28 +4,22 @@ from airflow import DAG
 from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import KubernetesPodOperator
 from airflow.operators.python_operator import PythonOperator
 
-import json
-
 def printSomething():
     return 'print something'
 
 with DAG(
-    'timo-example',
+    'timo_example',
 
     default_args={
         'depends_on_past': False,
         'retries': 1,
         'retry_delay': timedelta(minutes=5),
     },
-    description='timo-example DAG',
+    description='timo_example DAG',
     schedule_interval=timedelta(minutes=1),
     start_date=datetime(2022, 4, 1),
     catchup=False,
 ) as dag:
-
-    content = json.dumps({
-        'hello': 'world'
-    })
 
     t1 = PythonOperator(
         task_id='print_something',
