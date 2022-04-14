@@ -4,6 +4,8 @@ from airflow import DAG
 from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import KubernetesPodOperator
 from airflow.operators.python_operator import PythonOperator
 
+from tasks.print_something_task import printSomethingTask
+
 def printSomething():
     return 'print something'
 
@@ -37,4 +39,9 @@ with DAG(
         }
     )
 
-    t1 >> t2
+    t3 = PythonOperator(
+        task_id='print_something_task',
+        python_callable=printSomethingTask
+    )
+
+    t1 >> t2 >> t3

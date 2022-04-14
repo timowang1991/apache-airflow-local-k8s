@@ -9,7 +9,7 @@ scheduler:
   extraVolumes:
     - name: airflow-dag-volume
       hostPath: 
-        path: "{{CURRENT_DIRECTORY}}/src/dags"
+        path: "{{CURRENT_DIRECTORY}}/src/"
         type: Directory
   extraVolumeMounts:
     - name: airflow-dag-volume
