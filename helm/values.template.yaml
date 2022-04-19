@@ -14,3 +14,7 @@ scheduler:
   extraVolumeMounts:
     - name: airflow-dag-volume
       mountPath: /opt/airflow/dags
+
+extraEnv: |
+  - name: AIRFLOW__API__AUTH_BACKEND # see bottom of https://airflow.apache.org/docs/helm-chart/1.0.0/airflow-configuration.html
+    value: 'airflow.api.auth.backend.basic_auth' # see https://airflow.apache.org/docs/apache-airflow/stable/security/api.html#api-authentication
