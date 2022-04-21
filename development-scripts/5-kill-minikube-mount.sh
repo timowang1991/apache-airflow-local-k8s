@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 if [[ $(uname) == "Darwin" ]]; then
     echo "You are on Macbook. No need to run this command."
     exit 0

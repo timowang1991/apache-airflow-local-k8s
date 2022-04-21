@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 ./development-scripts/switch-to-local-context.sh
 
 sed "s+{{CURRENT_DIRECTORY}}+$(pwd)+g" helm/values.template.yaml > helm/values.yaml
